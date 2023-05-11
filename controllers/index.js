@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-const userRoutes = require("./userController");
-const blogpostRoutes = require("./blogpostController");
-
-router.get("/",(req,res)=>{
-    res.send("Tech Blog Homepage")
-});
+const userRoutes = require("./api/userController");
+const blogpostRoutes = require("./api/blogpostController");
 
 router.use("/api/users", userRoutes);
 router.use("/api/blogposts", blogpostRoutes);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User,BlogPost} = require("../models/");
+const {User,BlogPost} = require("../../models");
 // api/blogposts
 
 // Get all blogposts
