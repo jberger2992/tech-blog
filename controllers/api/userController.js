@@ -48,36 +48,17 @@ router.post("/", (req, res) => {
     });
 });
 
-// Update a Profile by ID
-router.put("/:id",(req,res)=>{
-    Profile.update({
-        username: req.body.username,
-        password: req.body.password,
-        score: req.body.score
-    },{
-        where:{id:req.params.id}
-    }).then(editProfile=>{
-        if(!editProfile[0]){
-            return res.status(404).json({msg:"No profile with that id exists."})
-        }
-        res.json(editProfile)
-    }).catch(err=>{
-        console.log(err);
-        res.status(500).json({msg:"ERROR",err})
-    })
-});
-
-// Delete Profile by ID
+// Delete User by ID
 router.delete("/:id",(req,res)=>{
-    Profile.destroy({
+    User.destroy({
         where:{
             id:req.params.id
         }
-    }).then(delProfile=>{
-        if(!delProfile){
-            return res.status(404).json({msg:"No profile with this id."})
+    }).then(delUser=>{
+        if(!delUser){
+            return res.status(404).json({msg:"No User with this id."})
         }
-        res.json(delProfile)
+        res.json(delUser)
     }).catch(err=>{
         console.log(err);
         res.status(500).json({msg:"ERROR",err})
@@ -86,20 +67,20 @@ router.delete("/:id",(req,res)=>{
 
 // Login
 router.post("/login", (req, res) => {
-    Profile.findOne({
+    User.findOne({
       where: {
-        username: req.body.username,
+        name: req.body.name,
       },
     })
-    .then((selectedProfile) => {
-        if(!selectedProfile){
+    .then((selectedUser) => {
+        if(!selectedUser){
           return res.status(401).json({msg:"Invalid Username/Password"})
         }
-        if(bcrypt.compareSync(req.body.password,selectedProfile.password)){
-            console.log(selectedProfile);
-            req.session.userId = selectedProfile.id;
-            req.session.userName=selectedProfile.username;
-          return res.json(selectedProfile);
+        if(bcrypt.compareSync(req.body.password,selectedUser.password)){
+            console.log(selectedUser);
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+          return res.json(selectedUser);
         } else {
           return res.status(401).json({msg:"Invalid Username/Password"})
         }
