@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userRoutes = require("./api/userController");
-const blogpostRoutes = require("./api/blogpostController");
+const apiRoutes = require("./api");
+const frontendRoutes = require("./frontendController")
 
-router.use("/api/users", userRoutes);
-router.use("/api/blogposts", blogpostRoutes);
+
+router.use("/api", apiRoutes);
+router.use("/", frontendRoutes);
 
 module.exports = router;
