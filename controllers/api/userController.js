@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const {User,BlogPost} = require("../../models");
+// api/users
 
 // Get all Users
 router.get("/",(req,res)=>{
@@ -78,8 +79,8 @@ router.post("/login", (req, res) => {
         }
         if(bcrypt.compareSync(req.body.password,selectedUser.password)){
             console.log(selectedUser);
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
+            req.session.sessUserId = selectedUser.id;
+            req.session.loggedIn = true;
           return res.json(selectedUser);
         } else {
           return res.status(401).json({msg:"Invalid Username/Password"})

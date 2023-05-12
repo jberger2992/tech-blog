@@ -12,12 +12,11 @@
         <nav>
            <a href="/">Home</a>
            <a href="/dashboard">Dashboard</a>
-            {{#if logged_in}}
+            {{#if loggedIn}}
             <button id="logout-btn">Logout</button>
             <script src="/js/logout.js"></script>
             {{else}}
             <a href="/login" id="login-a">Login</a>
-            <script src="/js/login.js"
             {{/if}}
         </nav>
         <h1>Tech Blog</h1>
