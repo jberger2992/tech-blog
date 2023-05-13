@@ -52,3 +52,5 @@ router.delete("/:id",(req,res)=>{
         res.status(500).json({msg:"Error",err})
     })
 });
+
+module.exports = router;

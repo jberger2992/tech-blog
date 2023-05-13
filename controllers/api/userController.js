@@ -80,6 +80,7 @@ router.post("/login", (req, res) => {
         if(bcrypt.compareSync(req.body.password,selectedUser.password)){
             console.log(selectedUser);
             req.session.sessUserId = selectedUser.id;
+            req.session.sessUserName = selectedUser.name;
             req.session.loggedIn = true;
           return res.json(selectedUser);
         } else {
