@@ -12,13 +12,13 @@
 <div class="container">
     <header class="p-4 text-white bg-success">
         <nav>
-           <a href="/">Home</a>
+           <a href="/" class="link-light">Home</a>
             {{#if loggedIn}}
-           <a href="/dashboard">Dashboard</a>
+           <a href="/dashboard" class="link-light">Dashboard</a>
             <button id="logout-btn">Logout</button>
             <script src="/js/logout.js"></script>
             {{else}}
-            <a href="/login" id="login-a">Login</a>
+            <a href="/login" class="link-light" id="login-a">Login</a>
             {{/if}}
         </nav>
         <h1 class="text-center">Tech Blog</h1>
