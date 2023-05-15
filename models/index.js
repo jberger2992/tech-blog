@@ -1,5 +1,5 @@
-const User = require("./user");
-const BlogPost = require('./blogpost');
+const User = require("./User");
+const BlogPost = require('./BlogPost');
 
 User.hasMany(BlogPost, {
   onDelete: 'CASCADE'
