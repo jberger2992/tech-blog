@@ -9,7 +9,8 @@
     <title>Tech Blog</title>
 </head>
 <body>
-    <header>
+<div class="container">
+    <header class="p-4 text-white bg-success">
         <nav>
            <a href="/">Home</a>
             {{#if loggedIn}}
@@ -20,12 +21,13 @@
             <a href="/login" id="login-a">Login</a>
             {{/if}}
         </nav>
-        <h1>Tech Blog</h1>
+        <h1 class="text-center">Tech Blog</h1>
     </header>
 
 
     <main>
     {{{body}}}
     </main>
+</div>
 </body>
 </html>

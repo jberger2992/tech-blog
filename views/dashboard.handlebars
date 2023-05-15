@@ -1,11 +1,14 @@
+<h2>{{name}}</h2>
 <button id="new-post-btn">New Post</button>
 
 {{#each BlogPosts}}
-    <h2>{{sessUserName}}</h2>
-    <h3>{{name}}</h3>
-    <p>{{description}}</p>
-    <button name="{{name}}" class="del-btn" id="{{id}}">Delete Blog</button>
-    <hr>
+    <div class="card col-7">
+        <div class="card-body">
+            <h3 class="card-title">{{name}}</h3>
+            <p class="card-text">{{description}}</p>
+            <button name="{{name}}" class="button del-btn" id="{{id}}">Delete Blog</button>
+        </div>
+    </div>
 {{/each}}
 
 <script src="/js/dashboard.js"></script>

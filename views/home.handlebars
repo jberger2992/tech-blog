@@ -1,8 +1,11 @@
-<button id="newpost-btn">New Post</button>
+<div class="row align-items-center">
 {{#each allBlogs}}
-    <h3>{{name}} by {{user.name}}</h3>
-    <p>{{description}}</p>
-    <hr>
+    <div class="card col-7">
+        <div class="card-body">
+            <h4 class="card-title">{{name}}</h4>
+            <p class="card-subtitle">by {{User.name}}</p>
+            <p class="card-text">{{description}}</p>
+        </div>
+    </div>
 {{/each}}
-
-<script src="/js/home.js"></script>
+</div>

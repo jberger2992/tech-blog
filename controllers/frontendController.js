@@ -5,7 +5,10 @@ const {User,BlogPost} = require("../models");
 // Route to render the homepage
 router.get("/", async (req,res) => {
     BlogPost.findAll({
-        include:[User]
+        include:{
+          all: true,
+          nested: true
+        }
     }).then(blogData=>{
         const plainData = blogData.map(blog=>blog.get({plain:true}));
         console.log(plainData);
