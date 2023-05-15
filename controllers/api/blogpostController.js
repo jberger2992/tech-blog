@@ -21,13 +21,13 @@ router.get("/", async(req, res) => {
 
 // Create new blogpost
 router.post("/",(req,res)=>{
-    if(!req.session.userId){
+    if(!req.session.sessUserId){
         return res.status(403).json({msg:"Must be logged in to post."})
     } 
     BlogPost.create({
         name:req.body.name,
         description:req.body.description,
-        UserId:req.session.userId
+        UserId:req.session.sessUserId
     }).then(newBlog=>{
         res.json(newBlog)
     }).catch(err=>{

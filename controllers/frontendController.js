@@ -48,4 +48,18 @@ router.get("/dashboard", async (req,res) => {
   }
 })
 
+// Route to create new post
+router.get("/newblog", async (req,res) => {
+  try {
+    if (!req.session.sessUserId) {
+      res.redirect("/")
+    } else {
+      res.render("newblog")
+    }  
+  } catch (err) {
+      console.log(err)
+      res.status(500).json({ msg: "ERROR", err });
+    }
+})
+
 module.exports = router;

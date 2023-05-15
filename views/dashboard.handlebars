@@ -1,3 +1,5 @@
+<button id="new-post-btn">New Post</button>
+
 {{#each BlogPosts}}
     <h2>{{sessUserName}}</h2>
     <h3>{{name}}</h3>
@@ -5,4 +7,5 @@
     <button name="{{name}}" class="del-btn" id="{{id}}">Delete Blog</button>
     <hr>
 {{/each}}
+
 <script src="/js/dashboard.js"></script>

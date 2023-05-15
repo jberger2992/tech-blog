@@ -1,4 +1,5 @@
 const delButton = document.querySelectorAll(".del-btn");
+const newPostButton = document.querySelector("#new-post-btn")
 
 for (let i = 0; i < delButton.length; i++) {
     delButton[i].addEventListener("click", e=>{
@@ -10,3 +11,7 @@ for (let i = 0; i < delButton.length; i++) {
         })
     })
 }
+
+newPostButton.addEventListener("click", e=>{
+    window.location.assign(`/newblog`)
+})
